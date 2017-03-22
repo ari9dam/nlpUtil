@@ -16,7 +16,9 @@ import weka.core.Instances;
  * @author Arindam
  *
  */
+@SuppressWarnings("deprecation")
 public class WekaDemo {
+	@SuppressWarnings({ "unchecked", "rawtypes", "unused" })
 	public static void main (String args[]) throws Exception{
 		// Declare two numeric attributes
 		 Attribute Attribute1 = new Attribute("firstNumeric");
