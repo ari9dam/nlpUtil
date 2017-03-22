@@ -1,0 +1,30 @@
+/**StanfordBerkeleyNlpPipeline.java
+ * 5:58:28 AM @author Arindam
+ */
+package edu.asu.nlu.common.parsing;
+
+import java.util.Properties;
+
+import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+
+/**
+ * @author Arindam
+ *
+ */
+public class StanfordBerkeleyNlpPipeline {
+	private StanfordCoreNLP pipeline;
+	public StanfordBerkeleyNlpPipeline(){
+		Properties props = new Properties();
+		props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse");
+		props.put("pos.model","edu/stanford/nlp/models/pos-tagger/english-bidirectional/english-bidirectional-distsim.tagger");
+		props.put("parse.type","charniak");
+		props.put("parse.executable","src/main/resources/berkeley.bat");
+		props.put("parse.model","");
+
+		pipeline = new StanfordCoreNLP(props);
+	}
+	
+	public StanfordCoreNLP getPipeline(){
+		return this.pipeline;
+	}
+}
